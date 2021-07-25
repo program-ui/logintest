@@ -93,6 +93,4 @@ app.use('/auth', require('./routes/auth'))
 app.use('/stories', require('./routes/stories'))
 
 
-const port = process.env.PORT || 3000;
-
-app.listen(port)
+app.listen(process.env.PORT || 3000)
