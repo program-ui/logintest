@@ -7,11 +7,10 @@ const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const passport= require('passport')
 const session = require('express-session')
-const MongoDBStore = require('connect-mongodb-session')(session)
-const config = require('config')
-const db = config.get('mongoURI');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash')
 const methodOverride = require('method-override')
+
 
 dotenv.config({path:'./config/config.env'})
 
@@ -64,17 +63,16 @@ app.set('view engine', '.hbs')
 // database connection
 mongodb()
 
-const store = new MongoDBStore({
-  uri: db,  
-  collection: 'mySessions'
-})
+
 //session
 app.use(
   session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    store: store,
+    store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URI
+        }),
   })
 )
 app.use(passport.initialize())
