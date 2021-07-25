@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "index": "nodemon index.js",
-    "start": "node index.js",
+    "start": "node app.js",
+    "index": "nodemon app.js",
     "dev": "cross-env NODE_EVN=development nodemon app.js"
   },
   "keywords": [],
