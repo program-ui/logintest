@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "index": "nodemon app.js",
     "dev": "cross-env NODE_EVN=development nodemon app.js"
   },
